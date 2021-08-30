@@ -1,0 +1,3 @@
+src/configs/env.config.ts
+node_modules
+dist

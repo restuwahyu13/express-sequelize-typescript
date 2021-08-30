@@ -1,0 +1,40 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 9,
+		"sourceType": "module",
+		"project": "tsconfig.json"
+	},
+	"extends": [
+		"env",
+		"standard-with-typescript",
+		"eslint:recommended",
+		"plugin:security/recommended",
+		"plugin:jest/recommended",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["filenames", "optimize-regex", "simple-import-sort"],
+	"rules": {
+		"node/no-unsupported-features/es-syntax": 0,
+		"node/no-missing-import": 0,
+		"node/file-extension-in-import": 0,
+		"prettier/prettier": 0,
+		"@typescript-eslint/restrict-template-expressions": 0,
+		"no-unneeded-ternary": 0,
+		"no-console": 1,
+		"@typescript-eslint/no-floating-promises": 0,
+		"@typescript-eslint/no-throw-literal": 0,
+		"prefer-destructuring": 0,
+		"@typescript-eslint/dot-notation": 1
+	},
+	"env": {
+		"node": true,
+		"es6": true,
+		"jest/globals": true
+	},
+	"settings": {
+		"jest": {
+			"version": 26
+		}
+	}
+}
