@@ -1,4 +1,4 @@
-import './helpers/envLoader'
+import 'dotenv/config'
 import http from 'http'
 import express, { Express } from 'express'
 import { databaseConnection } from './configs/connection.config'

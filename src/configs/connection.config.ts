@@ -26,6 +26,5 @@ export const databaseConnection = async (...modelSchemas: any[]): Promise<void> 
 		console.info('database connected')
 	} catch (error: any) {
 		console.info(`database not connected: ${error.message}`)
-		await connection.close()
 	}
 }

@@ -1,4 +1,4 @@
-import { Optional } from 'sequelize'
+import { DataTypes, Optional } from 'sequelize'
 import * as sequelize from 'sequelize-typescript'
 
 interface WorkExperince {
@@ -22,8 +22,8 @@ interface UserAttributes {
 	name: string
 	email: string
 	password: string
-	personalInformation: PersonalInformation
-	workExperinces: WorkExperince[]
+	personalInformation: string
+	workExperinces: string
 	photo: string
 	document: string
 	createdAt?: Date
@@ -52,23 +52,23 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 	password!: string
 
 	@sequelize.NotNull
-	@sequelize.Column
+	@sequelize.Column(DataTypes.STRING)
 	get personalInformation(): PersonalInformation {
-		return this.getDataValue('personalInformation')
+		return JSON.parse(this.getDataValue('personalInformation'))
 	}
 
-	set personalInformation(val: PersonalInformation) {
-		this.setDataValue('personalInformation', val)
+	set personalInformation(val: any) {
+		this.setDataValue('personalInformation', JSON.stringify(val))
 	}
 
 	@sequelize.NotNull
-	@sequelize.Column
+	@sequelize.Column(DataTypes.STRING)
 	get workExperinces(): WorkExperince[] {
-		return this.getDataValue('workExperinces')
+		return JSON.parse(this.getDataValue('workExperinces'))
 	}
 
-	set workExperinces(val: WorkExperince[]) {
-		this.setDataValue('workExperinces', val)
+	set workExperinces(val: any) {
+		this.setDataValue('workExperinces', JSON.stringify(val))
 	}
 
 	@sequelize.NotNull

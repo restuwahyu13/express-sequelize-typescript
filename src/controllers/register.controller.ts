@@ -30,14 +30,14 @@ export const registerController = async (req: Request, res: Response): Promise<a
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,
-			personalInformation: {
-				firstName: req.body.firstName,
-				lastName: req.body.lastName,
-				birtDate: req.body.birtDate,
-				bornDate: req.body.bornDate,
-				address: req.body.address
-			},
-			workExperinces: req.body.workExperinces,
+			// personalInformation: {
+			// 	firstName: req.body.firstName,
+			// 	lastName: req.body.lastName,
+			// 	birtDate: req.body.birtDate,
+			// 	bornDate: req.body.bornDate,
+			// 	address: req.body.address
+			// },
+			// workExperinces: req.body.workExperinces,
 			photo: data[0].secure_url,
 			document: data[1].secure_url
 		})
