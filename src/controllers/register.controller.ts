@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
-import { UploadApiResponse, cloudStorage } from '../helpers/cloudStorage'
+import { UploadApiResponse, cloudStorage } from '../helpers/cloudStorage.helpers'
 import { User } from '../models/user.model'
 
 export const registerController = async (req: Request, res: Response): Promise<any> => {

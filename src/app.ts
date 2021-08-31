@@ -5,7 +5,7 @@ import { pluginMiddleware } from './middlewares/plugin.middleware'
 import { routeMiddleware } from './middlewares/route.middleware'
 import { User } from './models/user.model'
 
-// initalize app here
+// initalize instance app here
 const app = express() as Express
 
 ;(async () => {

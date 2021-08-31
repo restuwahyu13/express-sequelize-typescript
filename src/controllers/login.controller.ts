@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
 import { verifyPassword } from '../helpers/bcrypt.helper'
-import { signinToken } from '../helpers/jwt'
+import { signinToken } from '../helpers/jwt.helpers'
 import { User } from '../models/user.model'
 
 export const loginController = async (req: Request, res: Response): Promise<any> => {
