@@ -1,5 +1,5 @@
 import http from 'http'
-import app from './src/app'
+import app from './app'
 
 // initialize instance server here
 const server = http.createServer(app)

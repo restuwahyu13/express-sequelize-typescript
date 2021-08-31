@@ -27,6 +27,7 @@ interface UserAttributes {
 	workExperinces: string
 	photo: string
 	document: string
+	role?: string
 	createdAt?: Date
 	updatedAt?: Date
 }
@@ -79,6 +80,10 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 	@sequelize.AllowNull(false)
 	@sequelize.Column
 	document!: string
+
+	@sequelize.AllowNull
+	@sequelize.Column
+	role!: string
 
 	@sequelize.AllowNull
 	@sequelize.CreatedAt
