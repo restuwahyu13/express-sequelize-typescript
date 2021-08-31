@@ -33,7 +33,7 @@ describe('API Test Driven Development', function () {
 					jobsPosition: 'programmer',
 					startWork: new Date('2018/03/01'),
 					endWork: new Date('2020/03/01'),
-					jobsDescription: 'Lorem Ipsum'
+					jobsDescription: 'Lorem IpsumLorem'
 				}
 			]),
 			photo: faker.image.people(),

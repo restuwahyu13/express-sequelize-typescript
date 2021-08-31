@@ -54,7 +54,7 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 	password!: string
 
 	@sequelize.AllowNull(false)
-	@sequelize.Column(DataTypes.STRING)
+	@sequelize.Column(DataTypes.STRING(255))
 	get personalInformation(): PersonalInformation {
 		return JSON.parse(this.getDataValue('personalInformation'))
 	}
@@ -64,7 +64,7 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 	}
 
 	@sequelize.AllowNull(false)
-	@sequelize.Column(DataTypes.STRING)
+	@sequelize.Column(DataTypes.STRING(255))
 	get workExperinces(): WorkExperince[] {
 		return JSON.parse(this.getDataValue('workExperinces'))
 	}
