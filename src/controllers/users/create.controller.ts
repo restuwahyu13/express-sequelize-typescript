@@ -27,7 +27,7 @@ export const createController = async (req: Request, res: Response): Promise<any
 			email: req.body.email,
 			password: req.body.password,
 			role: req.body.role,
-			photo: `${data[0].secure_url}`,
+			photo: data[0].secure_url,
 			personalInformation: '',
 			workExperinces: '',
 			document: ''

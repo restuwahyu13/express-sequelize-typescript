@@ -7,7 +7,6 @@ interface WorkExperince {
 	jobsPosition: string
 	startWork: Date
 	endWork: Date
-	jobsDescription: string
 }
 
 interface PersonalInformation {
