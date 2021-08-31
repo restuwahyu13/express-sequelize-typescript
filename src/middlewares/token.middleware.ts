@@ -10,7 +10,7 @@ export const tokenAuth = () => {
 			if (assert.isUndefined(tokenHeader as any)) {
 				throw { message: 'accessToken required' }
 			} else {
-				const accessToken: string = tokenHeader.split('Bearer ')[0]
+				const accessToken: string = tokenHeader.split(' ')[1]
 				const decodedToken = verifyToken(accessToken as any, (error: any, decoded: Record<string, any>): any => {
 					if (!error) return decoded
 					else return null

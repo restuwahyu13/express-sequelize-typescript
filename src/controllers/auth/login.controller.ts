@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
 import { verifyPassword } from '../../helpers/bcrypt.helper'
-import { grantToken } from '../../helpers/grant.helper'
+import { grandToken } from '../../helpers/grand.helper'
 import { signinToken } from '../../helpers/jwt.helpers'
 import { User } from '../../models/user.model'
 
@@ -21,7 +21,7 @@ export const loginController = async (req: Request, res: Response): Promise<any>
 		}
 
 		const jwtAccessToken: string = signinToken({ email: req.body.email })
-		const grantAccessToken: string = grantToken((checkUser as User).role)
+		const grantAccessToken: string = grandToken({ email: req.body.email, role: (checkUser as User).role })
 
 		if (assert.isUndefined(jwtAccessToken as any) || assert.isUndefined(grantAccessToken as any)) {
 			throw { error: 'AUTH_LOGIN_ERROR', code: 400, message: 'Generate token failed' }

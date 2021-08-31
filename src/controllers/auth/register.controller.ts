@@ -1,5 +1,4 @@
 import { Request, Response } from 'express'
-import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
 import { UploadApiResponse, cloudStorage } from '../../helpers/cloudStorage.helpers'
 import { User } from '../../models/user.model'
@@ -46,44 +45,3 @@ export const registerController = async (req: Request, res: Response): Promise<a
 		return res.status(error.code || 400).json(error)
 	}
 }
-
-export const schemaRegister = checkSchema({
-	name: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	},
-	email: {
-		in: 'body',
-		isEmail: true,
-		notEmpty: true
-	},
-	password: {
-		in: 'body',
-		isString: true,
-		notEmpty: true,
-		isLength: {
-			options: { min: 8 }
-		}
-	},
-	personalInformation: {
-		in: 'body',
-		isObject: true,
-		notEmpty: true
-	},
-	workExperinces: {
-		in: 'body',
-		isArray: true,
-		notEmpty: true
-	},
-	photo: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	},
-	document: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	}
-})

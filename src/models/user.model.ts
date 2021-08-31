@@ -96,7 +96,12 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 	updatedAt?: Date
 
 	@sequelize.BeforeCreate
-	static hashPassword(instance: User, options?: any): void {
+	static hashPasswordCreate(instance: User, options?: any): void {
+		instance.password = hashPassword(instance.password)
+	}
+
+	@sequelize.BeforeUpdate
+	static hashPasswordUpdate(instance: User, options?: any): void {
 		instance.password = hashPassword(instance.password)
 	}
 }

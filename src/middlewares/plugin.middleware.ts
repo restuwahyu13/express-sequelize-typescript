@@ -22,8 +22,8 @@ export const pluginMiddleware = (app: Application): void => {
 	app.use(
 		cors({
 			origin: '*',
-			allowedHeaders: ['Content-Type', 'Authorization', 'Host', 'Accept'],
-			exposedHeaders: ['Content-Type', 'Authorization', 'Host', 'Accept'],
+			allowedHeaders: ['Content-Type', 'Authorization', 'Host', 'Accept', 'grand'],
+			exposedHeaders: ['Content-Type', 'Authorization', 'Host', 'Accept', 'grand'],
 			methods: ['GET', 'POST', 'PUT', 'PATCH', 'PUT', 'DELETE'],
 			credentials: true
 		})
