@@ -42,6 +42,15 @@ describe('API Test Driven Development', function () {
 		await sequelize.sync({ force: true })
 	})
 
+	beforeEach(() => {
+		jest.useFakeTimers()
+		jest.setTimeout(100000)
+	})
+
+	afterEach(() => {
+		jest.clearAllTimers()
+	})
+
 	it('Should be register success', async () => {
 		const personalInformation = JSON.parse(userData.personalInformation)
 		const workExperinces = JSON.parse(userData.workExperinces)[0]
