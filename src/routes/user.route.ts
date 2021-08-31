@@ -42,6 +42,8 @@ router.route('/user/delete/:id').delete([tokenAuth(), grantAuth('admin', 'staff'
  * @params {id}
  * @description update user data by id
  */
-router.route('/user/update/:id').put([tokenAuth(), grantAuth('admin', 'staff'), ...schemaUpdate, validator], updateController)
+router
+	.route('/user/update/:id')
+	.put([tokenAuth(), grantAuth('admin', 'staff'), ...schemaUpdate, validator, upload.array('photo')], updateController)
 
 export default router

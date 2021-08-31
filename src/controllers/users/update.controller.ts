@@ -9,7 +9,7 @@ export const updateController = async (req: Request, res: Response): Promise<any
 		const checkUser = await User.findByPk(req.params.id)
 
 		if (assert.isNull(checkUser as any)) {
-			throw { error: 'DELETE_USER_ERROR', code: 404, message: `User data not found for this id ${req.params.id}` }
+			throw { error: 'UPDATE_USER_ERROR', code: 404, message: `User data not found for this id ${req.params.id}` }
 		}
 
 		const data: UploadApiResponse[] = []
