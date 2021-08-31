@@ -1,3 +1,3 @@
 ## FullStack Development
 
-FullStack freelance task from beijing tech company using MERN (MYSQL, EXPRESS, REACT, NODE).
+FullStack freelance task from malaysia tech company using MERN (MYSQL, EXPRESS, REACT, NODE).
