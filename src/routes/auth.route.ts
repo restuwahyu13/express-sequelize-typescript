@@ -6,9 +6,6 @@ import { validator } from '../middlewares/validator.middleware'
 
 const router = Router() as Router
 
-router.post('/', (req, res) => {
-	return res.send('testing')
-})
 router.route('/auth/login').post([...schemaLogin, validator], loginController)
 router.route('/auth/register').post([upload.fields([{ name: 'photo' }, { name: 'document' }])], registerController)
 

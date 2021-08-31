@@ -1,5 +1,6 @@
 import { DataTypes, Optional } from 'sequelize'
 import * as sequelize from 'sequelize-typescript'
+import { hashPassword } from '../helpers/bcrypt.helper'
 
 interface WorkExperince {
 	companyName: string
@@ -88,4 +89,9 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 	@sequelize.UpdatedAt
 	@sequelize.Column
 	updatedAt?: Date
+
+	@sequelize.BeforeCreate
+	static hashPassword(instance: User, options?: any): void {
+		instance.password = hashPassword(instance.password)
+	}
 }

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
-import { verifyPassword } from '../helpers/bcrypt'
+import { verifyPassword } from '../helpers/bcrypt.helper'
 import { signinToken } from '../helpers/jwt.helper'
 import { User } from '../models/user.model'
 
