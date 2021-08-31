@@ -8,7 +8,7 @@ export const resultController = async (req: Request, res: Response): Promise<any
 		const checkUser = await User.findByPk(req.params.id)
 
 		if (assert.isNull(checkUser as any)) {
-			throw { error: 'RESULT_USER_ERROR', code: 404, message: 'User data not found' }
+			throw { error: 'DELETE_USER_ERROR', code: 404, message: `User data not found for this id ${req.params.id}` }
 		}
 
 		return res.status(200).json({ message: 'Success', data: checkUser })

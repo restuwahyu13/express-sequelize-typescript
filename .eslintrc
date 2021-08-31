@@ -28,7 +28,8 @@
 		"@typescript-eslint/dot-notation": 1,
 		"node/handle-callback-err": 0,
 		"@typescript-eslint/strict-boolean-expressions": 0,
-		"@typescript-eslint/no-misused-promises": 0
+		"@typescript-eslint/no-misused-promises": 0,
+		"jsdoc/check-tag-names": 0
 	},
 	"env": {
 		"node": true,

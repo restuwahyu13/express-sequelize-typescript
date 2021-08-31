@@ -1,5 +1,4 @@
 import { Request, Response } from 'express'
-import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
 import { UploadApiResponse, cloudStorage } from '../../helpers/cloudStorage.helpers'
 import { User } from '../../models/user.model'
@@ -28,49 +27,18 @@ export const createController = async (req: Request, res: Response): Promise<any
 			email: req.body.email,
 			password: req.body.password,
 			role: req.body.role,
-			photo: data[0].secure_url,
+			photo: `${data[0].secure_url}`,
 			personalInformation: '',
 			workExperinces: '',
 			document: ''
 		})
 
 		if (assert.isNull(saveUser as any)) {
-			throw { error: 'CREATE_USER_ERROR', code: 403, message: 'Create new user account failed' }
+			throw { error: 'CREATE_USER_ERROR', code: 403, message: 'Create user data failed' }
 		}
 
-		return res.status(201).json({ message: 'Create new user account successfully' })
+		return res.status(201).json({ message: 'Create user data successfully' })
 	} catch (error: any) {
 		return res.status(error.code || 400).json(error)
 	}
 }
-
-export const schemaRegister = checkSchema({
-	name: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	},
-	email: {
-		in: 'body',
-		isEmail: true,
-		notEmpty: true
-	},
-	password: {
-		in: 'body',
-		isString: true,
-		notEmpty: true,
-		isLength: {
-			options: { min: 8 }
-		}
-	},
-	photo: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	},
-	role: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	}
-})
