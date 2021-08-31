@@ -34,24 +34,24 @@ interface UserAttributes {
 export class User extends sequelize.Model<UserAttributes, Optional<UserAttributes, 'id'>> {
 	@sequelize.PrimaryKey
 	@sequelize.AutoIncrement
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column
 	id!: number
 
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column
 	name!: string
 
 	@sequelize.IsEmail
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column
 	email!: string
 
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column
 	password!: string
 
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column(DataTypes.STRING)
 	get personalInformation(): PersonalInformation {
 		return JSON.parse(this.getDataValue('personalInformation'))
@@ -61,7 +61,7 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 		this.setDataValue('personalInformation', JSON.stringify(val))
 	}
 
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column(DataTypes.STRING)
 	get workExperinces(): WorkExperince[] {
 		return JSON.parse(this.getDataValue('workExperinces'))
@@ -71,18 +71,20 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 		this.setDataValue('workExperinces', JSON.stringify(val))
 	}
 
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column
 	photo!: string
 
-	@sequelize.NotNull
+	@sequelize.AllowNull(false)
 	@sequelize.Column
 	document!: string
 
+	@sequelize.AllowNull
 	@sequelize.CreatedAt
 	@sequelize.Column
 	createdAt?: Date
 
+	@sequelize.AllowNull
 	@sequelize.UpdatedAt
 	@sequelize.Column
 	updatedAt?: Date

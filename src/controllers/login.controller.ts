@@ -2,14 +2,14 @@ import { Request, Response } from 'express'
 import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
 import { verifyPassword } from '../helpers/bcrypt'
-import { signinToken } from '../helpers/jwt'
+import { signinToken } from '../helpers/jwt.helper'
 import { User } from '../models/user.model'
 
 export const loginController = async (req: Request, res: Response): Promise<any> => {
 	try {
 		const checkUser = await User.findOne({ where: { email: req.body.email } })
 
-		if (!assert.isNull(checkUser as any)) {
+		if (assert.isNull(checkUser as any)) {
 			throw { error: 'USER_LOGIN_ERROR', code: 404, message: 'Email not never registered' }
 		}
 
@@ -31,7 +31,7 @@ export const loginController = async (req: Request, res: Response): Promise<any>
 	}
 }
 
-export const schemaLoginController = checkSchema({
+export const schemaLogin = checkSchema({
 	email: {
 		in: 'body',
 		isEmail: true,

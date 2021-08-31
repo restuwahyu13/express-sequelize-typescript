@@ -11,11 +11,11 @@ const app = express() as Express
 const server = http.createServer(app)
 
 // initialize database connection here
-databaseConnection([User])
+databaseConnection(User)
 
 // initialize all middleware here
-routeMiddleware(app)
 pluginMiddleware(app)
+routeMiddleware(app)
 
 // listening server port here
 server.listen(process.env.PORT, () => {

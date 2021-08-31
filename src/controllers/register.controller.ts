@@ -8,12 +8,12 @@ export const registerController = async (req: Request, res: Response): Promise<a
 	try {
 		const checkUser = await User.findOne({ where: { email: req.body.email } })
 
-		if (assert.isNull(checkUser as any)) {
+		if (!assert.isNull(checkUser as any)) {
 			throw { error: 'USER_REGISTER_ERROR', code: 409, message: 'Email already taken' }
 		}
 
 		const data: UploadApiResponse[] = []
-		const photo = (req.file as any).photo
+		const photo = (req.files as any).photo
 		const document = (req.files as any).document
 		const files: Array<Record<string, any>> = photo.concat(document)
 
@@ -30,14 +30,8 @@ export const registerController = async (req: Request, res: Response): Promise<a
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,
-			// personalInformation: {
-			// 	firstName: req.body.firstName,
-			// 	lastName: req.body.lastName,
-			// 	birtDate: req.body.birtDate,
-			// 	bornDate: req.body.bornDate,
-			// 	address: req.body.address
-			// },
-			// workExperinces: req.body.workExperinces,
+			personalInformation: req.body.personalInformation,
+			workExperinces: req.body.workExperinces,
 			photo: data[0].secure_url,
 			document: data[1].secure_url
 		})
@@ -46,13 +40,13 @@ export const registerController = async (req: Request, res: Response): Promise<a
 			throw { error: 'USER_REGISTER_ERROR', code: 403, message: 'Create new user account failed' }
 		}
 
-		return res.status(201).json({})
+		return res.status(201).json({ message: 'Create new user account successfully' })
 	} catch (error: any) {
 		return res.status(error.code).json(error)
 	}
 }
 
-export const schemaLoginController = checkSchema({
+export const schemaRegister = checkSchema({
 	name: {
 		in: 'body',
 		isString: true,
@@ -71,29 +65,9 @@ export const schemaLoginController = checkSchema({
 			options: { min: 8 }
 		}
 	},
-	firstName: {
+	personalInformation: {
 		in: 'body',
-		isString: true,
-		notEmpty: true
-	},
-	lastName: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	},
-	birtDate: {
-		in: 'body',
-		isDate: true,
-		notEmpty: true
-	},
-	bornDate: {
-		in: 'body',
-		isString: true,
-		notEmpty: true
-	},
-	address: {
-		in: 'body',
-		isString: true,
+		isObject: true,
 		notEmpty: true
 	},
 	workExperinces: {

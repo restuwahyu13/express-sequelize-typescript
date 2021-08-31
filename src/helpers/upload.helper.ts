@@ -24,7 +24,7 @@ const diskStorage: StorageEngine = multer.diskStorage({
 
 const fileValidator = (req: any, file: any, done): void => {
 	const extFile = file.originalname.replace('.', '')
-	const extPattern = /(jpg|jpeg|png|gif|svg|doc)/giu.test(extFile)
+	const extPattern = /(jpg|jpeg|png|gif|svg|doc|pdf)/giu.test(extFile)
 
 	if (!extPattern) {
 		done(new TypeError('File format not supported'), null as any)

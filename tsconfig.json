@@ -19,7 +19,7 @@
 		"noImplicitAny": false,
 		"noImplicitReturns": false
 	},
-	"include": ["src/**/*.ts", "src/models/user.model.tsx"],
+	"include": ["src/**/*.ts"],
 	"exclude": ["node_modules", "dist"],
 	"ts-node": {
 		"files": true,
