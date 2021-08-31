@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"outDir": "dist",
-		"target": "ES2019",
+		"target": "ES2018",
 		"module": "CommonJS",
 		"moduleResolution": "Node",
 		"typeRoots": ["node_modules/@types/"],
@@ -12,15 +12,14 @@
 		"importHelpers": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"allowSyntheticDefaultImports": true,
-		"allowUmdGlobalAccess": true,
 		"removeComments": true,
 		"strict": true,
+		"allowSyntheticDefaultImports": true,
 		"noImplicitAny": false,
 		"noImplicitReturns": false
 	},
-	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules", "dist"],
+	"include": ["src/**/*.ts", "server.ts"],
+	"exclude": ["node_modules", "dist", "__test__"],
 	"ts-node": {
 		"files": true,
 		"compilerHost": true,

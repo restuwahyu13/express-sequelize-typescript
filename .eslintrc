@@ -25,7 +25,10 @@
 		"@typescript-eslint/no-floating-promises": 0,
 		"@typescript-eslint/no-throw-literal": 0,
 		"prefer-destructuring": 0,
-		"@typescript-eslint/dot-notation": 1
+		"@typescript-eslint/dot-notation": 1,
+		"node/handle-callback-err": 0,
+		"@typescript-eslint/strict-boolean-expressions": 0,
+		"@typescript-eslint/no-misused-promises": 0
 	},
 	"env": {
 		"node": true,

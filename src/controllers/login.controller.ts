@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
 import { verifyPassword } from '../helpers/bcrypt.helper'
-import { signinToken } from '../helpers/jwt.helper'
+import { signinToken } from '../helpers/jwt'
 import { User } from '../models/user.model'
 
 export const loginController = async (req: Request, res: Response): Promise<any> => {
@@ -27,7 +27,7 @@ export const loginController = async (req: Request, res: Response): Promise<any>
 
 		return res.status(200).json({ message: 'Login successfully', accessToken })
 	} catch (error: any) {
-		return res.status(error.code).json(error)
+		return res.status(error.code || 400).json(error)
 	}
 }
 

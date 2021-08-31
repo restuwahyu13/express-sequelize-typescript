@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript'
 
-export const databaseConnection = async (...modelSchemas: any[]): Promise<void> => {
+export const databaseConnection = (...modelSchemas: any[]): any => {
 	try {
 		const sequelize = new Sequelize(
 			process.env.MYSQL_DATABASE as string,
@@ -16,16 +16,15 @@ export const databaseConnection = async (...modelSchemas: any[]): Promise<void> 
 					idle: 15000,
 					acquire: 30000
 				},
-				logQueryParameters: process.env.NODE_ENV !== 'production' ? true : false,
+				logQueryParameters: process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test' ? true : false,
 				storage: ':memory:',
 				models: modelSchemas
 			}
 		)
 
-		await sequelize.authenticate()
-		await sequelize.sync({ force: true })
+		console.log('database connected')
 
-		console.info('database connected')
+		return sequelize
 	} catch (error) {
 		console.error('database not connected')
 	}

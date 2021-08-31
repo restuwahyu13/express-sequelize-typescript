@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { checkSchema } from 'express-validator'
 import { assert } from 'is-any-type'
-import { UploadApiResponse, cloudStorage } from '../helpers/cloudStorage.helper'
+import { UploadApiResponse, cloudStorage } from '../helpers/cloudStorage'
 import { User } from '../models/user.model'
 
 export const registerController = async (req: Request, res: Response): Promise<any> => {
@@ -42,7 +42,7 @@ export const registerController = async (req: Request, res: Response): Promise<a
 
 		return res.status(201).json({ message: 'Create new user account successfully' })
 	} catch (error: any) {
-		return res.status(error.code).json(error)
+		return res.status(error.code || 400).json(error)
 	}
 }
 
