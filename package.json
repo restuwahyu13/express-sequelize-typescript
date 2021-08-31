@@ -1,5 +1,5 @@
 {
-	"name": "fullstack",
+	"name": "fullstack-server",
 	"version": "1.0.0",
 	"description": "fullstack freelance test from beijing tech company",
 	"main": "dist/server.js",
@@ -43,8 +43,7 @@
 		"mysql2": "^2.3.0",
 		"reflect-metadata": "^0.1.13",
 		"sequelize": "^6.6.5",
-		"sequelize-typescript": "^2.1.0",
-		"uuid": "^8.3.2"
+		"sequelize-typescript": "^2.1.0"
 	},
 	"devDependencies": {
 		"@types/bcryptjs": "^2.4.2",
