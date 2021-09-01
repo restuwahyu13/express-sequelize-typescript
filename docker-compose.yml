@@ -1,19 +1,37 @@
 version: '3.8'
 services:
-  ##########################
-  # SERVICE APP ENVIRONMENT
-  ##########################
-  app:
+  #################################
+  # SERVICE APP SERVER ENVIRONMENT
+  ################################
+  app_server:
     build: .
+    restart: always
+    env_file: .env
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    depends_on:
+      - database
+    networks:
+      - mern_network
+  #################################
+  # SERVICE APP CLIENT ENVIRONMENT
+  ################################
+  app_client:
+    build:
+      context: client
+      dockerfile: Dockerfile
     restart: always
     env_file: .env
     ports:
       - 3000:3000
     volumes:
-      - .:./app
-      - /app/node_modules
+      - ./client:/app/client
+      - /app/client/node_modules
     depends_on:
-      - database
+      - app_server
     networks:
       - mern_network
   ##########################

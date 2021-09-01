@@ -1,5 +1,7 @@
 node_modules
 dist
-client/dist
-client/node_modules
 coverages
+.env
+client/node_modules
+client/dist
+client/.env

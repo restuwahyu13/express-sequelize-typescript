@@ -17,7 +17,8 @@
 		"compiler": "tsc --pretty",
 		"build": "npm run cleanup && npm run compiler",
 		"test": "cross-env NODE_ENV=test jest --runInBand --forceExit",
-		"dev": "tsnd --poll --respawn --watch src/**/*.{ts} src/server.ts",
+		"start": "node dist/server.js",
+		"dev": "cross-env NODE_ENV=development tsnd --poll --respawn --watch src/**/*.{ts} src/server.ts",
 		"formatter": "prettier src/**/*.{ts,d.ts} --check --write",
 		"fixed": "eslint src/**/*.{ts,d.ts} --fix"
 	},

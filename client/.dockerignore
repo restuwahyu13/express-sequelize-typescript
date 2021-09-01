@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+**/tsconfig.json
+**/node_modules
+**/.env
+**/jestconfig.ts
+**/dist
