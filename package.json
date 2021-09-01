@@ -10,6 +10,7 @@
 		"src/**/*"
 	],
 	"scripts": {
+		"cinstall": "cd client && npm install",
 		"cstart": "npm start --prefix client",
 		"cbuild": "npm run build --prefix client",
 		"cleanup": "rimraf dist",

@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  ##########################
+  # SERVICE APP ENVIRONMENT
+  ##########################
+  app:
+    build: .
+    restart: always
+    env_file: .env
+    ports:
+      - 3000:3000
+    volumes:
+      - .:./app
+      - /app/node_modules
+    depends_on:
+      - database
+    networks:
+      - mern_network
+  ##########################
+  # SERVICE DB ENVIRONMENT
+  ##########################
+  database:
+    image: mysql:latest
+    restart: always
+    env_file: .env
+    ports:
+      - 3306:3306
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      - mern_network
+  ##########################
+  # VOLUMES PERSISTENT DATA
+  ##########################
+volumes:
+  database:
+  #############################
+  # NETWORKS SHARING CONNECTION
+  #############################
+networks:
+  mern_network:
