@@ -4,7 +4,11 @@ function Alert(props) {
 	return (
 		<div>
 			{props.disabled === undefined && props.message !== undefined && alert(props.message)}
-			{props.redirect !== undefined && props.message !== undefined && props.message === props.validate && props.redirect}
+			{props.redirect !== undefined &&
+				props.validate !== undefined &&
+				props.message !== undefined &&
+				props.message === props.validate &&
+				props.redirect}
 		</div>
 	)
 }

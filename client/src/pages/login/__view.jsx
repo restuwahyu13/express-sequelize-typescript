@@ -1,5 +1,4 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
 
 import Header from '../../components/Header'
 import Alert from '../../components/Alert'
@@ -10,6 +9,7 @@ function __view(props) {
 	return (
 		<>
 			<Header />
+			<Alert disabled={disabled} message={message} />
 			<div className="container mt-5">
 				<div className="row d-flex flex-row justify-content-center align-items-center">
 					<div className="col-lg-6 col-md-12 col-sm-12">
@@ -63,7 +63,6 @@ function __view(props) {
 					</div>
 				</div>
 			</div>
-			<Alert disabled={disabled} message={message} validate="Login successfully" redirect={<Redirect to="/home" />} />
 		</>
 	)
 }
