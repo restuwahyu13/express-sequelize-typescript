@@ -9,7 +9,7 @@ import FormDetail from '../components/FormDetail'
 import FormUpload from '../components/FormUpload'
 import Complete from '../components/Compelete'
 
-function RootPage(props) {
+function Register(props) {
 	const [state, setState] = React.useState({
 		name: '',
 		email: '',
@@ -74,15 +74,24 @@ function RootPage(props) {
 		formData.append('workExperinces[0][startWork]', state.startWork)
 		formData.append('workExperinces[0][endWork]', state.endWork)
 		formData.append('workExperinces[0][bornDate]', state.bornDate)
-		formData.append('photo', file.photo.name)
-		formData.append('document', file.document.name)
+		formData.append('photo', file.photo)
+		formData.append('document', file.document)
 
 		props.registerAction('REGISTER', formData)
+		console.log(props.registerState)
 
-		setDisabled(true)
-		setTimeout(() => setDisabled(false), 2000)
-
-		console.log('props.registerState', props.registerState)
+		if (props.registerState && props.registerState.payload.success) {
+			setDisabled(true)
+			setTimeout(() => setDisabled(false), 3000)
+			setTimeout(() => {
+				alert(props.registerState.payload.message)
+				props.history.push('/home')
+			}, 3002)
+		} else {
+			setDisabled(true)
+			setTimeout(() => setDisabled(false), 3000)
+			setTimeout(() => alert(props.registerState.payload.message), 3002)
+		}
 	}
 
 	const RenderContennt = () => {
@@ -134,4 +143,4 @@ const mapDispatchToProps = (dispatch) => ({
 	registerAction: (action, payload) => dispatch(registerCreator(action, payload))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(RootPage)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

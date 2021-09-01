@@ -1,29 +1,18 @@
 import { Fragment, useEffect } from 'react'
-import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from './redux/store'
 
-import RootPage from './pages'
-
-// const FethcData = () => {
-// 	useEffect(() => {
-// 		axios.get('/api').then((res) => console.log(res.data))
-// 	}, [])
-
-// 	return (
-// 		<>
-// 			<h1>Hello Wordl</h1>
-// 		</>
-// 	)
-// }
+import Register from './pages/Register'
+import Home from './pages/Home'
 
 const App = () => (
 	<ConnectedRouter history={history}>
 		<Router>
 			<Fragment>
 				<Switch>
-					<Route exact path="/" component={RootPage} />
+					<Route exact path="/" component={Register} />
+					<Route path="/home" component={Home} />
 					<Route
 						path="*"
 						render={() => (

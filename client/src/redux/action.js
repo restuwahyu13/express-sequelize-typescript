@@ -11,10 +11,18 @@ export const actionType = {
 export const registerCreator = (action, payload) => {
 	return async (dispatch) => {
 		try {
-			const res = await axios.post('/api/auth/register', payload)
-			dispatch({ type: action, payload: { message: res.data.message } })
+			const res = await axios.post('/api/auth/register', payload, {
+				headers: {
+					'Access-Control-Origin': '*',
+					'Access-Control-Allow-Methods': '*',
+					'Access-Control-Allow-Headers': '*',
+					'Content-Type': 'multipart/form-data'
+				}
+			})
+
+			dispatch({ type: action, payload: { message: res.data.message, succes: true } })
 		} catch (error) {
-			dispatch({ payload: { message: error.response } })
+			dispatch({ type: action, payload: { message: error.response.data.message, succes: false } })
 		}
 	}
 }

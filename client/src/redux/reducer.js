@@ -3,8 +3,8 @@ import { initialState, actionType } from './action'
 export const registerReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionType.REGISTER:
-			return { ...state, message: action.payload }
+			return { ...state, payload: action.payload }
 		default:
-			return { ...state, message: 'error' }
+			return { ...state, payload: action.payload }
 	}
 }

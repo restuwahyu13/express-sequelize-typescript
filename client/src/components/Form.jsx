@@ -1,18 +1,4 @@
-import React from 'react'
-
 function Form(props) {
-	// const [validate, setValidate] = React.useState(false)
-	// const getValue = [props.value.name, props.value.email, props.value.password, props.value.cpassword]
-	// let check = getValue.includes('')
-
-	// const handleClick = () => {
-	// 	if (check) {
-	// 		alert('field is required')
-	// 	} else {
-	// 		setValidate(true)
-	// 	}
-	// }
-
 	return (
 		<>
 			<div className="container">
@@ -38,7 +24,14 @@ function Form(props) {
 											/>
 										</div>
 										<div className="d-flex justify-content-center align-items-center">
-											<input type="file" className="mt-4" name="photo" onChange={props.handleChangeFile} required />
+											<input
+												type="file"
+												className="mt-4"
+												name="photo"
+												onChange={props.handleChangeFile}
+												required
+												accept="image/*"
+											/>
 										</div>
 									</div>
 								</div>
