@@ -34,6 +34,16 @@ function RootPage(props) {
 
 	const [step, setStep] = React.useState(1)
 
+	const previousStep = (e) => {
+		e.preventDefault()
+		setStep(() => step - 1)
+	}
+
+	const nextStep = (e) => {
+		e.preventDefault()
+		setStep(() => step + 1)
+	}
+
 	const handleChange = (e) => {
 		setState({ ...state, [e.target.name]: e.target.value })
 	}
@@ -75,16 +85,6 @@ function RootPage(props) {
 		console.log('props.registerState', props.registerState)
 	}
 
-	const previousStep = (e) => {
-		e.preventDefault()
-		setStep(() => step - 1)
-	}
-
-	const nextStep = (e) => {
-		e.preventDefault()
-		setStep(() => step + 1)
-	}
-
 	const RenderContennt = () => {
 		switch (step) {
 			case 1:
@@ -120,7 +120,7 @@ function RootPage(props) {
 
 	return (
 		<>
-			<Step />
+			<Step step={step} />
 			{RenderContennt()}
 		</>
 	)

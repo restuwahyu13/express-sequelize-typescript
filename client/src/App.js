@@ -1,9 +1,22 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
+import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from './redux/store'
 
 import RootPage from './pages'
+
+// const FethcData = () => {
+// 	useEffect(() => {
+// 		axios.get('/api').then((res) => console.log(res.data))
+// 	}, [])
+
+// 	return (
+// 		<>
+// 			<h1>Hello Wordl</h1>
+// 		</>
+// 	)
+// }
 
 const App = () => (
 	<ConnectedRouter history={history}>
