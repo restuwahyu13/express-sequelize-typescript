@@ -4,8 +4,6 @@ import { UploadApiResponse, cloudStorage } from '../../helpers/cloudStorage.help
 import { User } from '../../models/user.model'
 
 export const registerController = async (req: Request, res: Response): Promise<any> => {
-	console.log('req.body', req.body)
-	console.log('req.files', req.files)
 	try {
 		const checkUser = await User.findOne({ where: { email: req.body.email } })
 

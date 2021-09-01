@@ -8,9 +8,8 @@ function __view(props) {
 	const { disabled, message, handleSubmit, handleChange, state } = props
 
 	return (
-		<div>
+		<>
 			<Header />
-			<Alert disabled={disabled} message={message} validate="Login successfully" redirect={<Redirect to="/home" />} />
 			<div className="container mt-5">
 				<div className="row d-flex flex-row justify-content-center align-items-center">
 					<div className="col-lg-6 col-md-12 col-sm-12">
@@ -20,36 +19,41 @@ function __view(props) {
 							</div>
 							<div className="card bod p-3">
 								<form onSubmit={handleSubmit} autoComplete="off">
-									<div class="form-group">
+									<div className="form-group">
 										<label htmlFor="email" className="py-2 text-dark font-weight-bold">
 											Email
 										</label>
 										<input
 											type="email"
 											name="email"
-											class="form-control"
+											className="form-control"
 											placeholder="Enter Email"
 											onChange={handleChange}
 											value={state.email}
 											required
 										/>
 									</div>
-									<div class="form-group">
+									<div className="form-group">
 										<label htmlFor="password" className="py-2 text-dark font-weight-bold">
 											Password
 										</label>
 										<input
 											type="password"
 											name="password"
-											class="form-control"
+											className="form-control"
 											placeholder="Enter Password"
 											onChange={handleChange}
-											value={state.email}
+											value={state.password}
 											required
 										/>
 									</div>
-									<div class="form-group">
-										<button type="submit" className="btn col-12 mt-3 text-dark font-weight-bold">
+									<div className="form-group">
+										<button
+											type="submit"
+											className="btn col-12 mt-3 text-dark font-weight-bold"
+											disabled={props.disabled}
+											style={{ opacity: props.disabled ? '0.3' : 1 }}
+										>
 											Login
 										</button>
 									</div>
@@ -59,7 +63,8 @@ function __view(props) {
 					</div>
 				</div>
 			</div>
-		</div>
+			<Alert disabled={disabled} message={message} validate="Login successfully" redirect={<Redirect to="/home" />} />
+		</>
 	)
 }
 

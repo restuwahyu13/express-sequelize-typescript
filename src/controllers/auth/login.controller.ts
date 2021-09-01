@@ -42,9 +42,6 @@ export const schemaLogin = checkSchema({
 	password: {
 		in: 'body',
 		isString: true,
-		notEmpty: true,
-		isLength: {
-			options: { min: 8 }
-		}
+		notEmpty: true
 	}
 })

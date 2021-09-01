@@ -17,9 +17,11 @@ function Login(props) {
 		if (props.registerState && props.registerState.payload.success) {
 			setDisabled(true)
 			setTimeout(() => setDisabled(undefined), 3000)
+			window.localStorage.setItem('accessToken', state.payload.accessToken)
 		} else {
 			setDisabled(true)
 			setTimeout(() => setDisabled(undefined), 3000)
+			window.localStorage.setItem('accessToken', '')
 		}
 	}
 
