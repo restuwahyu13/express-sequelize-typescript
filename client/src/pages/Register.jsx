@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { registerCreator } from '../redux/action'
 
 import Step from '../components/Step'
@@ -8,6 +9,8 @@ import FormInformation from '../components/FormInformation'
 import FormDetail from '../components/FormDetail'
 import FormUpload from '../components/FormUpload'
 import Complete from '../components/Compelete'
+import Alert from '../components/Alert'
+import Header from '../components/Header'
 
 function Register(props) {
 	const [state, setState] = React.useState({
@@ -33,6 +36,8 @@ function Register(props) {
 	const [disabled, setDisabled] = React.useState(false)
 
 	const [step, setStep] = React.useState(1)
+
+	const [message, setMessage] = React.useState(undefined)
 
 	const previousStep = (e) => {
 		e.preventDefault()
@@ -78,21 +83,19 @@ function Register(props) {
 		formData.append('document', file.document)
 
 		props.registerAction('REGISTER', formData)
-		console.log(props.registerState)
 
 		if (props.registerState && props.registerState.payload.success) {
 			setDisabled(true)
-			setTimeout(() => setDisabled(false), 3000)
-			setTimeout(() => {
-				alert(props.registerState.payload.message)
-				props.history.push('/home')
-			}, 3002)
+			setTimeout(() => setDisabled(undefined), 3000)
 		} else {
 			setDisabled(true)
-			setTimeout(() => setDisabled(false), 3000)
-			setTimeout(() => alert(props.registerState.payload.message), 3002)
+			setTimeout(() => setDisabled(undefined), 3000)
 		}
 	}
+
+	React.useEffect(() => {
+		setMessage(props.registerState.payload.message)
+	}, [props.registerState.payload.message])
 
 	const RenderContennt = () => {
 		switch (step) {
@@ -129,6 +132,13 @@ function Register(props) {
 
 	return (
 		<>
+			<Header />
+			<Alert
+				disabled={disabled}
+				message={message}
+				validate="Create new user account successfully"
+				redirect={<Redirect to="/home" />}
+			/>
 			<Step step={step} />
 			{RenderContennt()}
 		</>
