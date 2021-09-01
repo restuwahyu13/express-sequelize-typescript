@@ -5,7 +5,8 @@ export const initialState = {
 }
 
 export const actionType = {
-	REGISTER: 'REGISTER'
+	REGISTER: 'REGISTER',
+	LOGIN: 'LOGIN'
 }
 
 export const registerCreator = (action, payload) => {
@@ -17,6 +18,25 @@ export const registerCreator = (action, payload) => {
 					'Access-Control-Allow-Methods': '*',
 					'Access-Control-Allow-Headers': '*',
 					'Content-Type': 'multipart/form-data'
+				}
+			})
+
+			dispatch({ type: action, payload: { message: res.data.message, succes: true } })
+		} catch (error) {
+			dispatch({ type: action, payload: { message: error.response.data.message, succes: false } })
+		}
+	}
+}
+
+export const loginCreator = (action, payload) => {
+	return async (dispatch) => {
+		try {
+			const res = await axios.post('/api/auth/login', payload, {
+				headers: {
+					'Access-Control-Origin': '*',
+					'Access-Control-Allow-Methods': '*',
+					'Access-Control-Allow-Headers': '*',
+					'Content-Type': 'application/json'
 				}
 			})
 

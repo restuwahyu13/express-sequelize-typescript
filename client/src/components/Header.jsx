@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 function Header(props) {
 	const pathname = props.location.pathname
@@ -17,13 +17,17 @@ function Header(props) {
 							className="btn mx-3"
 							style={{ color: pathname === '/register' ? '#006bce' : 'rgb(93, 91, 91)', fontWeight: 600, fontSize: 15 }}
 						>
-							REGISTER
+							<Link to="/register" className="text-decoration-none">
+								REGISTER
+							</Link>
 						</button>
 						<button
 							className="btn mx-3"
 							style={{ color: pathname === '/login' ? '#006bce' : 'rgb(93, 91, 91)', fontWeight: 600, fontSize: 15 }}
 						>
-							LOGIN
+							<Link to="/login" className="text-decoration-none">
+								LOGIN
+							</Link>
 						</button>
 					</div>
 				</div>

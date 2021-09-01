@@ -4,8 +4,9 @@ import { ConnectedRouter } from 'connected-react-router'
 import { Redirect } from 'react-router-dom'
 import { history } from './redux/store'
 
-import Register from './pages/Register'
-import Home from './pages/Home'
+import Register from './pages/register'
+import Login from './pages/login'
+import Home from './pages/home'
 
 const App = () => (
 	<ConnectedRouter history={history}>
@@ -22,6 +23,7 @@ const App = () => (
 						)}
 					/>
 					<Route path="/register" component={Register} />
+					<Route path="/login" component={Login} />
 					<Route path="/home" component={Home} />
 					<Route
 						path="*"

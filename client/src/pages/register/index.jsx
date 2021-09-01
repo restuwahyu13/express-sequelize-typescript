@@ -1,16 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
-import { registerCreator } from '../redux/action'
+import { registerCreator } from '../../redux/action'
 
-import Step from '../components/Step'
-import Form from '../components/Form'
-import FormInformation from '../components/FormInformation'
-import FormDetail from '../components/FormDetail'
-import FormUpload from '../components/FormUpload'
-import Complete from '../components/Compelete'
-import Alert from '../components/Alert'
-import Header from '../components/Header'
+import RegisterView from './__view'
+import Form from '../../components/Form'
+import FormInformation from '../../components/FormInformation'
+import FormDetail from '../../components/FormDetail'
+import FormUpload from '../../components/FormUpload'
+import Complete from '../../components/Compelete'
 
 function Register(props) {
 	const [state, setState] = React.useState({
@@ -130,19 +127,12 @@ function Register(props) {
 		}
 	}
 
-	return (
-		<>
-			<Header />
-			<Alert
-				disabled={disabled}
-				message={message}
-				validate="Create new user account successfully"
-				redirect={<Redirect to="/home" />}
-			/>
-			<Step step={step} />
-			{RenderContennt()}
-		</>
-	)
+	return React.createElement(RegisterView, {
+		message,
+		disabled,
+		step,
+		RenderContennt
+	})
 }
 
 const mapStateToProps = (state) => ({
