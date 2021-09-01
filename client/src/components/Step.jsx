@@ -3,7 +3,7 @@ import React from 'react'
 function Step(props) {
 	return (
 		<>
-			<div class="container">
+			<div className="container">
 				<div className="row d-flex justify-content-center align-items-center">
 					<div className="col-12">
 						<div className="d-flex justify-content-center align-items-center img-header">
@@ -63,7 +63,7 @@ function Step(props) {
 								<span className="mt-1 opacity-0">PASSWORD</span>
 							</div>
 							<div className="circle-root col-2">
-								<div class="circle">
+								<div className="circle">
 									<div className="circle-content" style={{ backgroundColor: props.step === 5 ? '#cde7ff' : '#ffff' }}>
 										<span className="circle-text">5</span>
 									</div>

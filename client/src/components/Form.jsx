@@ -30,14 +30,14 @@ function Form(props) {
 							<div className="d-flex flex-inline px-5 mt-3">
 								<div className="col-6">
 									<div className="form-group col-6">
-										<div class="d-flex justify-content-center align-items-center">
+										<div className="d-flex justify-content-center align-items-center">
 											<img
 												src="https://res.cloudinary.com/coding-street-art/image/upload/v1630429484/Avatar_j0mpoq.png"
 												alt="Logo"
 												className="img-responsive img-logo"
 											/>
 										</div>
-										<div class="d-flex justify-content-center align-items-center">
+										<div className="d-flex justify-content-center align-items-center">
 											<input type="file" className="mt-4" name="photo" onChange={props.handleChangeFile} required />
 										</div>
 									</div>
