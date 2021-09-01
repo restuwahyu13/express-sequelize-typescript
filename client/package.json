@@ -4,7 +4,6 @@
 	"description": "fullstack freelance test from beijing tech company",
 	"private": true,
 	"dependencies": {
-		"@loadable/component": "^5.15.0",
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
@@ -14,7 +13,6 @@
 		"history": "^4.10.1",
 		"react": "^16.14.0",
 		"react-dom": "^16.14.0",
-		"react-images-upload": "^1.2.8",
 		"react-redux": "^7.2.4",
 		"react-router-dom": "^5.2.1",
 		"react-scripts": "4.0.3",
