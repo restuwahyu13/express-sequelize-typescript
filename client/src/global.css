@@ -4,6 +4,56 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	height: 1000px;
+	font-family: Open Sans;
+}
+
+button {
+	background-color: #cde7ff !important;
+	border: none;
+	color: #006bce;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 8px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='date'] {
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	font-size: 16px;
+	color: rgb(93, 91, 91);
+}
+
+input[type='text']:not(:focus),
+input[type='password']:not(:focus),
+input[type='date']:not(:focus) {
+	border: 2px solid rgba(48, 47, 47, 0.8);
+}
+
+input[type='file'] {
+	color: rgb(93, 91, 91);
+	font-size: 14px;
+	display: block;
+	border: none;
+	outline: none;
+	position: relative;
+	left: 5.5rem;
+	padding: 5px;
+}
+
+label {
+	font-size: 15px;
+	color: rgba(48, 47, 47, 0.8);
+	font-weight: 400;
 }
 
 .img-logo {
@@ -18,7 +68,7 @@ body {
 	width: 55px;
 	height: 55px;
 	border-radius: 50%;
-	background-color: #cde7ff;
+	/* background-color: #cde7ff; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -58,7 +108,7 @@ body {
 	background-color: #006bce;
 	width: 140px;
 	height: 3px;
-	z-index: -1;
+	z-index: -99;
 	border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
@@ -73,13 +123,19 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 20px;
-	padding: 5px;
-	border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-	-o-border-radius: 3px;
+	font-size: 21px;
+	padding: 8px;
+	font-weight: 600;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 	margin-top: 5rem;
-	font-weight: bold;
+}
+
+.line-text {
+	font-size: 16px;
+	color: rgba(48, 47, 47, 0.9);
+	font-weight: 400;
 }

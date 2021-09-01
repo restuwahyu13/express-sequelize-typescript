@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Step() {
+function Step(props) {
 	return (
 		<>
 			<div class="container">
@@ -15,8 +15,8 @@ function Step() {
 						</div>
 						<div className="d-flex justify-content-center align-items-center img-header-circle">
 							<div className="circle-root col-2">
-								<div class="circle">
-									<div className="circle-content">
+								<div className="circle">
+									<div className="circle-content" style={{ backgroundColor: props.step === 1 ? '#cde7ff' : '#ffff' }}>
 										<span className="circle-text">1</span>
 									</div>
 									<div className="circle-line"></div>
@@ -27,8 +27,8 @@ function Step() {
 								<span className="mt-1">PASSWORD</span>
 							</div>
 							<div className="circle-root col-2">
-								<div class="circle">
-									<div className="circle-content">
+								<div className="circle">
+									<div className="circle-content" style={{ backgroundColor: props.step === 2 ? '#cde7ff' : '#ffff' }}>
 										<span className="circle-text">2</span>
 									</div>
 									<div className="circle-line"></div>
@@ -39,8 +39,8 @@ function Step() {
 								<span className="mt-1 opacity-0">PASSWORD</span>
 							</div>
 							<div className="circle-root col-2">
-								<div class="circle">
-									<div className="circle-content">
+								<div className="circle">
+									<div className="circle-content" style={{ backgroundColor: props.step === 3 ? '#cde7ff' : '#ffff' }}>
 										<span className="circle-text">3</span>
 									</div>
 									<div className="circle-line"></div>
@@ -51,8 +51,8 @@ function Step() {
 								<span className="mt-1 opacity-0">PASSWORD</span>
 							</div>
 							<div className="circle-root col-2">
-								<div class="circle">
-									<div className="circle-content">
+								<div className="circle">
+									<div className="circle-content" style={{ backgroundColor: props.step === 4 ? '#cde7ff' : '#ffff' }}>
 										<span className="circle-text">4</span>
 									</div>
 									<div className="circle-line"></div>
@@ -64,7 +64,7 @@ function Step() {
 							</div>
 							<div className="circle-root col-2">
 								<div class="circle">
-									<div className="circle-content">
+									<div className="circle-content" style={{ backgroundColor: props.step === 5 ? '#cde7ff' : '#ffff' }}>
 										<span className="circle-text">5</span>
 									</div>
 								</div>

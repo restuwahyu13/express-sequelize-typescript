@@ -33,7 +33,8 @@ describe('API Test Driven Development', function () {
 					jobsPosition: 'programmer',
 					startWork: new Date('2018/03/01'),
 					endWork: new Date('2020/03/01'),
-					jobsDescription: 'Lorem IpsumLorem'
+					jobsDescription:
+						'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s'
 				}
 			]),
 			photo: faker.image.people(),

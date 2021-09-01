@@ -3,7 +3,7 @@ import { User } from '../../models/user.model'
 
 export const resultsController = async (req: Request, res: Response): Promise<any> => {
 	try {
-		const checkUsers = await User.findAll({ order: [['createdAt', 'DESC']] })
+		const checkUsers = await User.findAll()
 
 		if (!checkUsers.length) {
 			throw { error: 'RESULTS_USER_ERROR', code: 404, message: 'User data not found' }

@@ -2,20 +2,20 @@ import { DataTypes, Optional } from 'sequelize'
 import * as sequelize from 'sequelize-typescript'
 import { hashPassword } from '../helpers/bcrypt.helper'
 
-interface WorkExperince {
-	companyName: string
-	jobsPosition: string
-	startWork: Date
-	endWork: Date
-}
+// interface WorkExperince {
+// 	companyName: string
+// 	jobsPosition: string
+// 	startWork: Date
+// 	endWork: Date
+// }
 
-interface PersonalInformation {
-	firstName: string
-	lastName: string
-	birtDate: Date
-	bornDate: string
-	address: string
-}
+// interface PersonalInformation {
+// 	firstName: string
+// 	lastName: string
+// 	birtDate: Date
+// 	bornDate: string
+// 	address: string
+// }
 
 interface UserAttributes {
 	id: number
@@ -53,24 +53,12 @@ export class User extends sequelize.Model<UserAttributes, Optional<UserAttribute
 	password!: string
 
 	@sequelize.AllowNull(false)
-	@sequelize.Column(DataTypes.STRING(255))
-	get personalInformation(): PersonalInformation {
-		return JSON.parse(this.getDataValue('personalInformation'))
-	}
-
-	set personalInformation(val: any) {
-		this.setDataValue('personalInformation', JSON.stringify(val))
-	}
+	@sequelize.Column(DataTypes.JSON)
+	personalInformation: any
 
 	@sequelize.AllowNull(false)
-	@sequelize.Column(DataTypes.STRING(255))
-	get workExperinces(): WorkExperince[] {
-		return JSON.parse(this.getDataValue('workExperinces'))
-	}
-
-	set workExperinces(val: any) {
-		this.setDataValue('workExperinces', JSON.stringify(val))
-	}
+	@sequelize.Column(DataTypes.JSON)
+	workExperinces: any
 
 	@sequelize.AllowNull(false)
 	@sequelize.Column
